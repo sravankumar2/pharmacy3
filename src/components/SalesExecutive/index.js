@@ -15,7 +15,7 @@ const SalesExecutive=( {loginStatus, salesLogin,logOutSales,adminLogin })=>{
                     localStorage.setItem('adminLogin', false)
                     localStorage.setItem('salesLogin', false)                   
                     logOutSales()
-                    history.push("/")
+                    history.push("/pharmacy1")
            
       };
     return <div id="sales-home" style={{marginTop:"80px"}}>
@@ -24,14 +24,14 @@ const SalesExecutive=( {loginStatus, salesLogin,logOutSales,adminLogin })=>{
     <div>
          <span><Link to="/createOrder">Create Order</Link></span>
          <span><Link to="/sales/viewOrders">View Orders</Link></span>
-         <span onClick={handleClick}><Link to="/">LogOut</Link></span>
+         <span onClick={handleClick}><Link to="/pharmacy1">LogOut</Link></span>
     </div>
     <div>
      
       <Switch>
     {salesLogin&&loginStatus && <Route path="/createOrder"><AddOrders/></Route>}
     {salesLogin&&loginStatus && <Route path="/sales/viewOrders"><ViewOrderr/></Route>}
-    {!salesLogin && !loginStatus&&<Route path="/"><Home/></Route>}
+    {!salesLogin && !loginStatus&&<Route path="/pharmacy1"><Home/></Route>}
     </Switch>
     
     </div>

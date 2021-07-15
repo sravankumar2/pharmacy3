@@ -62,7 +62,7 @@ const NestedList=({ logOutAdmin,loginStatus })=>{
                 localStorage.setItem('salesLogin', false)
                
                 logOutAdmin()
-                history.push("/")
+                history.push("/pharmacy1")
        
   };
 
@@ -170,7 +170,7 @@ const NestedList=({ logOutAdmin,loginStatus })=>{
           </Link>         
         </List>
       </Collapse>
-      {/* <Link to="/" className={classes.links}> */}
+      {/* <Link to="/pharmacy1" className={classes.links}> */}
         <ListItem button onClick={handleClick}>        
         <ListItemIcon>
           <ExitToAppIcon />

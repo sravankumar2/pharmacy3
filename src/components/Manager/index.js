@@ -30,7 +30,7 @@ const AdminHome=({ adminLogin, loginStatus, salesLogin })=>{
           {adminLogin && loginStatus && <Route path="/admin/view_team"><ViewEmployes /> </Route>}
           {adminLogin && loginStatus && <Route path="/admin/show_all_orders"><ShowOrders /> </Route>}
           {adminLogin && loginStatus && <Route path="/admin/create_orders"><CreateOrder /> </Route>}
-          {!adminLogin && !loginStatus&&<Route path="/"><Home/></Route>}
+          {!adminLogin && !loginStatus&&<Route path="/pharmacy1"><Home/></Route>}
           <Route path=""><h1>404 Error</h1></Route>
       
           </Switch>

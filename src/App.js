@@ -30,7 +30,7 @@ function App({ adminLogin, loginStatus, salesLogin }) {
    
     {console.log(adminLogin, loginStatus,salesLogin)}
     <Switch>
-          <Route path="/" exact><Home/></Route>
+          <Route path="/pharmacy1" exact><Home/></Route>
           {/* {!adminLogin && !loginStatus &&<Route path="/" exact><Home /></Route>} */}
           {/* <Route path="/login" exact><Home /></Route> */}
           {/* <Route path="/" exact><Login /></Route> */}
