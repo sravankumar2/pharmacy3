@@ -1,0 +1,13 @@
+#admin-home{
+    margin-top:70px;
+    display: flex;
+    
+}
+.admin-home-rightContainer{
+    margin-left:20%;
+    width: 80%;
+    position: relative; 
+    padding: 2%;   
+    
+    
+}
