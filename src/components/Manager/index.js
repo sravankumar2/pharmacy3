@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router,Switch,Route} from 'react-router-dom';
+import { BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 import Sidebar from "./Sidebar/index";
 import AddStock from "./addStock";
 import ViewStock from "./viewStock";
@@ -23,15 +23,16 @@ const AdminHome=({ adminLogin, loginStatus, salesLogin })=>{
     <Switch>
       
          
-         
+        
          {adminLogin && loginStatus && <Route path="/admin/view_stock"><ViewStock/> </Route>}
           {adminLogin && loginStatus && <Route path="/admin/add_medicine"><AddStock /> </Route>}
           {adminLogin && loginStatus && <Route path="/admin/add_sales_executive"><AddEmploye /> </Route>}
           {adminLogin && loginStatus && <Route path="/admin/view_team"><ViewEmployes /> </Route>}
           {adminLogin && loginStatus && <Route path="/admin/show_all_orders"><ShowOrders /> </Route>}
           {adminLogin && loginStatus && <Route path="/admin/create_orders"><CreateOrder /> </Route>}
+         
           {!adminLogin && !loginStatus&&<Route path="/pharmacy1"><Home/></Route>}
-          <Route path=""><h1>404 Error</h1></Route>
+          <Route path="*"><h1>404 Error</h1></Route>
       
           </Switch>
           </div>

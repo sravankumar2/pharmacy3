@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { Switch, Route, HashRouter as Router} from 'react-router-dom';
+import { Switch, Route, BrowserRouter as Router} from 'react-router-dom';
 import Navbar from './components/Navbar';
 // import Login from './components/Login';
 // import Admin from './components/Manager';
@@ -20,6 +20,7 @@ import { connect } from 'react-redux';
 import Man from "./components/Manager/index"
 import AdminHome from './components/Manager';
 import SalesHome from "./components/SalesExecutive"
+import Landing from './components/Landing';
 
 function App({ adminLogin, loginStatus, salesLogin }) {
   console.log(adminLogin)
@@ -28,9 +29,9 @@ function App({ adminLogin, loginStatus, salesLogin }) {
     <Router>
     <Navbar/>
    
-    {console.log(adminLogin, loginStatus,salesLogin)}
+    
     <Switch>
-          <Route path="/pharmacy1" exact><Home/></Route>
+          <Route path="/pharmacy1" exact><Landing/></Route>
           {/* {!adminLogin && !loginStatus &&<Route path="/" exact><Home /></Route>} */}
           {/* <Route path="/login" exact><Home /></Route> */}
           {/* <Route path="/" exact><Login /></Route> */}

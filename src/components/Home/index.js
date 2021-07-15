@@ -22,6 +22,7 @@ const mapStateToProps = (state) => ({
     loginStatus: state.loginStatus,
     adminLogin: state.adminLogin,
     salesLogin: state.salesLogin
+    
 })
 
 const mapDispatchToProps = {
