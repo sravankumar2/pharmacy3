@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { Switch, Route, HashRouter as Router} from 'react-router-dom';
 import Navbar from './components/Navbar';
 // import Login from './components/Login';
 // import Admin from './components/Manager';
@@ -25,7 +25,7 @@ function App({ adminLogin, loginStatus, salesLogin }) {
   console.log(adminLogin)
   return (
     <div className="App">
-    <BrowserRouter>
+    <Router>
     <Navbar/>
    
     {console.log(adminLogin, loginStatus,salesLogin)}
@@ -48,7 +48,7 @@ function App({ adminLogin, loginStatus, salesLogin }) {
     {salesLogin&&loginStatus && <Route path="/sales/viewOrders"><ViewOrderr/></Route>}
     {!salesLogin && !loginStatus&&<Route path="/"><Home/></Route>} */}
         </Switch>
-    </BrowserRouter>
+    </Router>
     </div>
   );
 }

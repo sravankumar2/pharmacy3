@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter,Switch,Route, Link} from 'react-router-dom';
+import {HashRouter as Router,Switch,Route, Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import Home from '../Home';
 import AddOrders from "../Manager/createOrder";
@@ -19,7 +19,7 @@ const SalesExecutive=( {loginStatus, salesLogin,logOutSales,adminLogin })=>{
            
       };
     return <div id="sales-home" style={{marginTop:"80px"}}>
-      <BrowserRouter>
+      <Router>
     <h2>SalesExecutive</h2>
     <div>
          <span><Link to="/createOrder">Create Order</Link></span>
@@ -35,7 +35,7 @@ const SalesExecutive=( {loginStatus, salesLogin,logOutSales,adminLogin })=>{
     </Switch>
     
     </div>
-    </BrowserRouter>
+    </Router>
 </div>
 }
 

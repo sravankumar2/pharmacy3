@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter,Switch,Route} from 'react-router-dom';
+import { HashRouter as Router,Switch,Route} from 'react-router-dom';
 import Sidebar from "./Sidebar/index";
 import AddStock from "./addStock";
 import ViewStock from "./viewStock";
@@ -16,7 +16,7 @@ const AdminHome=({ adminLogin, loginStatus, salesLogin })=>{
    
   return <div id="admin-home">
    
-    <BrowserRouter>
+    <Router>
     <Sidebar/>
     {console.log(adminLogin, loginStatus,salesLogin)}
     <div className="admin-home-rightContainer">
@@ -35,7 +35,7 @@ const AdminHome=({ adminLogin, loginStatus, salesLogin })=>{
       
           </Switch>
           </div>
-    </BrowserRouter>
+    </Router>
 
 
   </div>
