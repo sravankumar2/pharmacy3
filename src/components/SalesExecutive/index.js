@@ -15,7 +15,7 @@ const SalesExecutive=( {loginStatus, salesLogin,logOutSales,adminLogin })=>{
                     localStorage.setItem('adminLogin', false)
                     localStorage.setItem('salesLogin', false)                   
                     logOutSales()
-                    history.push("/pharmacy1")
+                    history.push("/pharmacy3")
            
       };
     return <div id="sales-home" style={{marginTop:"80px"}}>
@@ -31,7 +31,7 @@ const SalesExecutive=( {loginStatus, salesLogin,logOutSales,adminLogin })=>{
       <Switch>
     {salesLogin&&loginStatus && <Route path="/createOrder"><AddOrders/></Route>}
     {salesLogin&&loginStatus && <Route path="/sales/viewOrders"><ViewOrderr/></Route>}
-    {!salesLogin && !loginStatus&&<Route path="/pharmacy1"><Home/></Route>}
+    {!salesLogin && !loginStatus&&<Route path="/pharmacy3"><Home/></Route>}
     </Switch>
     
     </div>

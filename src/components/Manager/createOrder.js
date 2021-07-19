@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import { connect } from 'react-redux'
-import { createOrder, emptyCart } from "../../actions/index";
+import { createOrder} from "../../actions/index";
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import styles from "./createOrder.module.css";

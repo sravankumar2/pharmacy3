@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Select from 'react-select';
+import React from 'react';
+// import { Link } from 'react-router-dom';
+// import Select from 'react-select';
 import "./index.css"
 const Navbar=()=>{   
     return <div className="top-bar">

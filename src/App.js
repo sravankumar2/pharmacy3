@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import { Switch, Route, BrowserRouter as Router} from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -17,10 +17,10 @@ import { connect } from 'react-redux';
 // import AddOrders from "./components/SalesExecutive/createOrder";
 // import ViewOrderr from "./components/SalesExecutive/viewOrders"
 
-import Man from "./components/Manager/index"
+// import Man from "./components/Manager/index"
 import AdminHome from './components/Manager';
 import SalesHome from "./components/SalesExecutive"
-import Landing from './components/Landing';
+// import Landing from './components/Landing';
 
 function App({ adminLogin, loginStatus, salesLogin }) {
   console.log(adminLogin)
@@ -31,7 +31,7 @@ function App({ adminLogin, loginStatus, salesLogin }) {
    
     
     <Switch>
-          <Route path="/pharmacy1" exact><Home/></Route>
+          <Route path="/pharmacy3" exact><Home/></Route>
           {/* {!adminLogin && !loginStatus &&<Route path="/" exact><Home /></Route>} */}
           {/* <Route path="/login" exact><Home /></Route> */}
           {/* <Route path="/" exact><Login /></Route> */}

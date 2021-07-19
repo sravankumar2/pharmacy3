@@ -13,10 +13,10 @@ import StoreIcon from '@material-ui/icons/Store';
 import PeopleIcon from '@material-ui/icons/People';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { adminLogout } from '../../actions';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,7 +50,7 @@ const NestedList=({ logOutAdmin,loginStatus })=>{
   const [emp, setEmp] = React.useState(false);
   const [ord, setOrd] = React.useState(false);
   // const [loginStatus,setLoginStatus]=React.useState("true")
-  const history = useHistory()
+  // const history = useHistory()
   const ihandleClick = (e) => {
     setStock(!stock);
   };
@@ -174,7 +174,7 @@ const NestedList=({ logOutAdmin,loginStatus })=>{
           </Link>         
         </List>
       </Collapse>
-      <Link to="/pharmacy1"  className={classes.links}>
+      <Link to="/pharmacy3"  className={classes.links}>
         <ListItem button onClick={handleClick}>        
         <ListItemIcon>
           <ExitToAppIcon />

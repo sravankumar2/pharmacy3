@@ -1,11 +1,11 @@
-import React,{useEffect, useState} from 'react';
+import React,{useState} from 'react';
 import "./index.css";
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { adminLogin, salesLogin} from "../../actions"
 const Login=(props)=>{
- const user= props.userData.value
+//  const user= props.userData.value
   console.log(props.userData.value)
   const [loginEmail, setLoginEmail] = useState('');
   const [loginPassword, setLoginPassword] = useState('')
@@ -20,7 +20,7 @@ const Login=(props)=>{
  
   const handleLogin=(e)=>{
     e.preventDefault()   
-    if (props.userData.value==1) {
+    if (props.userData.value===1) {
         if (loginEmail === "test-admin" && loginPassword === "test-admin") {
             setLoginStatus(true)
             localStorage.setItem('loginStatus', true)

@@ -1,11 +1,11 @@
 import React from 'react';
 import Man from "../Manager/index";
 import Sales from "../SalesExecutive/index";
-import Login from '../Login';
+// import Login from '../Login';
 
 import { connect } from 'react-redux'
 import Landing from '../Landing/index';
-import { Route } from 'react-router-dom';
+// import { Route } from 'react-router-dom';
 
 
 const Home = ({ loginStatus, adminLogin, salesLogin }) => {

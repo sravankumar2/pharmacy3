@@ -1,12 +1,12 @@
 import React,{useState} from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
+// import { Link, Route, Switch } from 'react-router-dom';
 import Select from 'react-select';
-import { selectedOptions } from '../../actions';
+// import { selectedOptions } from '../../actions';
 import Login from '../Login';
-import { connect } from 'react-redux';
-import { adminLogin, salesLogin,loginStatus} from "../../actions";
+// import { connect } from 'react-redux';
+// import { adminLogin, salesLogin,loginStatus} from "../../actions";
 import "./landing.css";
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 const Landing=({adminLogin, salesLogin,loginStatus})=>{
     if (loginStatus !== 'false'|| adminLogin !== 'false' || salesLogin !== 'false') {
         localStorage.setItem('loginStatus', "false");
@@ -14,7 +14,7 @@ const Landing=({adminLogin, salesLogin,loginStatus})=>{
         localStorage.setItem('salesLogin', "false")
     }
     const [selectedOption, setSelectedOption] = useState(null);
-    const history=useHistory()
+    // const history=useHistory()
     const handleChange = e => {
         setSelectedOption(e); 
             
