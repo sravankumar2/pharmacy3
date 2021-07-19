@@ -29,10 +29,11 @@ function App({ adminLogin, loginStatus, salesLogin }) {
     <div className="App">
     <Router>
     <Navbar/>
+
    
     
     <Switch>
-          <Route path="/pharmacy3" exact><Landing/></Route>
+          <Route path="/pharmacy3" exact component={Home}/>
           {/* {!adminLogin && !loginStatus &&<Route path="/" exact><Home /></Route>} */}
           {/* <Route path="/login" exact><Home /></Route> */}
           {/* <Route path="/" exact><Login /></Route> */}
