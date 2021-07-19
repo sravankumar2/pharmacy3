@@ -5,15 +5,20 @@ import Sales from "../SalesExecutive/index";
 
 import { connect } from 'react-redux'
 import Landing from '../Landing/index';
-// import { Route } from 'react-router-dom';
+import { Route ,Switch} from 'react-router-dom';
 
 
 const Home = ({ loginStatus, adminLogin, salesLogin }) => {
    
     return (<div style={{margin:"0px"}}>
-        {adminLogin === true && loginStatus === true && <Man />}
+        {/* {adminLogin === true && loginStatus === true && <Man />}
         {salesLogin === true && loginStatus === true && <Sales />}
-        {loginStatus === false && <Landing/>}
+        {loginStatus === false && <Landing/>} */}
+        <Switch>
+    {adminLogin === true && loginStatus === true &&<Route path="/adminHome"><Man/></Route>}
+    {salesLogin === true && loginStatus === true &&<Route path="/salesHome"><Sales/></Route>}
+    {loginStatus === false && <Route path="/pharmacy3"><Landing/></Route>}
+    </Switch>
     </div>);
 }
 

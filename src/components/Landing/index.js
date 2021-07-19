@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import { Route } from 'react-router-dom';
 // import { Link, Route, Switch } from 'react-router-dom';
 import Select from 'react-select';
 // import { selectedOptions } from '../../actions';
@@ -30,7 +31,8 @@ const Landing=({adminLogin, salesLogin,loginStatus})=>{
       />
      
       {
-          selectedOption && <Login userData={selectedOption}/>
+          selectedOption && <Route path="/login"><Login userData={selectedOption}/></Route>
+          // <Login userData={selectedOption}/>
       }
      
     </div>
