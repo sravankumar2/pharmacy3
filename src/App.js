@@ -20,6 +20,7 @@ import { connect } from 'react-redux';
 // import Man from "./components/Manager/index"
 import AdminHome from './components/Manager';
 import SalesHome from "./components/SalesExecutive"
+import Landing from './components/Landing';
 // import Landing from './components/Landing';
 
 function App({ adminLogin, loginStatus, salesLogin }) {
@@ -31,7 +32,7 @@ function App({ adminLogin, loginStatus, salesLogin }) {
    
     
     <Switch>
-          <Route path="/pharmacy3" exact><Home/></Route>
+          <Route path="/pharmacy3" exact><Landing/></Route>
           {/* {!adminLogin && !loginStatus &&<Route path="/" exact><Home /></Route>} */}
           {/* <Route path="/login" exact><Home /></Route> */}
           {/* <Route path="/" exact><Login /></Route> */}
