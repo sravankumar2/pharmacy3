@@ -7,10 +7,10 @@ import { connect } from 'react-redux'
 import Landing from '../Landing/index';
 import { Route } from 'react-router-dom';
 
+
 const Home = ({ loginStatus, adminLogin, salesLogin }) => {
-    console.log(loginStatus);
-    console.log(loginStatus === false);
-    return (<div>
+   
+    return (<div style={{margin:"0px"}}>
         {adminLogin === true && loginStatus === true && <Man />}
         {salesLogin === true && loginStatus === true && <Sales />}
         {loginStatus === false && <Landing/>}

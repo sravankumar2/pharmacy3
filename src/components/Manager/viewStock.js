@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-
 import { connect } from 'react-redux';
-
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { updateInventoryDetails } from '../../actions';
+import styles from "./viewStock.module.css";
 
 
 const ViewStock=({inventoryList, update_inventory_details,inventory_list_after_delete_ById})=>{
@@ -28,6 +27,7 @@ const ViewStock=({inventoryList, update_inventory_details,inventory_list_after_d
     }
  
  const handleUpdate=(id)=>{
+  
   if(id!==""){
   
    const inventoryListAfterUpdate= JSON.parse(localStorage.getItem('inventoryList')) ;
@@ -42,6 +42,7 @@ const ViewStock=({inventoryList, update_inventory_details,inventory_list_after_d
    localStorage.setItem('inventoryList', JSON.stringify(inventoryListAfterUpdate));
    update_inventory_details(inventoryListAfterUpdate)
    }
+   
    setMedicineId("")
    setMedicineName("")
    setManufacturerName("")
@@ -61,40 +62,41 @@ const ViewStock=({inventoryList, update_inventory_details,inventory_list_after_d
    
  
  return(
-    <div>
-      <table className="gridtable">
-  <tr>
-    <th>Medicine</th>
-    <th>Manufacturer</th>
-    <th>Price</th>
-    <th>quantity</th>
-    <th>Discount</th>
-  </tr>
-  <tr>
+      <div className={styles.tableWrapper}>       
+        <table className={styles.gridTable}>
+        <caption>Inventory Details</caption>
+          <tr>
+            <th>Medicine</th>
+            <th>Manufacturer</th>
+            <th>Price</th>
+            <th>quantity</th>
+            <th>Discount</th>
+          </tr>
+          <tr>   
+            <td><input type="text" required value={medicineName} onChange={(e) => { setMedicineName(e.target.value) }}></input></td>
+            <td><input type="text" required value={manufacturerName} onChange={(e) => { setManufacturerName(e.target.value) }}></input></td>
+            <td><input type="text" required value={price} onChange={(e) => { setPrice(e.target.value) }}></input></td>
+            <td><input type="text" required min="0" value={stock} onChange={(e) => { setStock(e.target.value) }}></input></td>
+            <td><input type="text" required min="0" max="100" value={discount} onChange={(e) => { setDiscount(e.target.value) }}></input></td>
+            <td><button onClick={()=>handleUpdate(medicineId)}>Update</button></td>
    
-    <td><input type="text"  value={medicineName} onChange={(e) => { setMedicineName(e.target.value) }}></input></td>
-    <td><input type="text" value={manufacturerName} onChange={(e) => { setManufacturerName(e.target.value) }}></input></td>
-    <td><input type="text" value={price} onChange={(e) => { setPrice(e.target.value) }}></input></td>
-    <td><input type="text" value={stock} onChange={(e) => { setStock(e.target.value) }}></input></td>
-    <td><input type="text" value={discount} onChange={(e) => { setDiscount(e.target.value) }}></input></td>
-    <td><button onClick={()=>handleUpdate(medicineId)}>Update</button></td>
-   
-  </tr>
-    <tbody>  {inventoryList.map(item =>{    
-      return <tr key={item.medicineId}>
-      <td>{item.medicineName}</td>
-      <td>{item.manufacturerName}</td>
-      <td>{item.price}</td>
-      <td>{item.stock}</td>
-      <td>{item.discount}</td>
-      <td onClick={()=>handleEdit(item.medicineId)}><EditIcon/></td>
-      <td onClick={()=>removeStock(item.medicineId)}><DeleteIcon/></td>
-    </tr>
-  })}
-  </tbody>
-</table>
-    </div>
-  )
+          </tr>
+          <tbody>  {inventoryList.map(item =>{    
+               return <tr key={item.medicineId}>
+                        <td>{item.medicineName}</td>
+                        <td>{item.manufacturerName}</td>
+                        <td>{item.price}</td>
+                        <td>{item.stock}</td>
+                        <td>{item.discount}</td>
+                        <td onClick={()=>handleEdit(item.medicineId)}><EditIcon/></td>
+                        <td onClick={()=>removeStock(item.medicineId)}><DeleteIcon/></td>
+                      </tr>
+                    })}
+          </tbody>
+        </table>
+       
+      </div>
+      )
 
 }
 const mapStateToProps = (state) => ({

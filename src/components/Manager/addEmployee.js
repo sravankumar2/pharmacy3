@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import { connect } from 'react-redux';
-import { addSalesExecutive } from '../../actions/index'
+import { addSalesExecutive } from '../../actions/index';
+import styles from "./addEmp.module.css";
 const AddEmployee=({ add_executive_to_team })=>{
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
@@ -9,49 +10,54 @@ const AddEmployee=({ add_executive_to_team })=>{
     const [experience, setExperience] = useState(0)
     const handleFormSubmit = (e) => {
         const executiveDetails = { firstName: firstName, lastName: lastName, dob: dob, gender: gender, experience: experience, salesExecutiveId: Math.floor((Math.random() * 100000000) + 1) }
-
         e.preventDefault();
         e.target[0].value = ''
         e.target[1].value = ''
         e.target[2].value = ''
         e.target[3].value = ''
         e.target[4].value = ''
-
+        e.target[5].value=''
+        e.target[6].value=''
         add_executive_to_team(executiveDetails)
         var empList = JSON.parse(localStorage.getItem('empList')) || [];
         empList.push(executiveDetails);
         localStorage.setItem('empList', JSON.stringify(empList));
     }
 
-
     return(
-    <div>
-        <form className="add_medicine_form" onSubmit={handleFormSubmit}>
-
-            <div className="form-group">
-                <label htmlFor="medicineName">First Name</label>
-                <input type="text" className="form-control" id="medicineName" placeholder="First Name" onChange={(e) => { setFirstName(e.target.value) }} />
+        <div id={styles.loginform}>
+             <h2 id={styles.headerTitle}>Employee Registration</h2>  
+            <form onSubmit={handleFormSubmit}>
+           
+            <div className={styles.row}>
+                <label>First Name</label>
+                <input type="text"  required placeholder="First Name" onChange={(e) => { setFirstName(e.target.value) }} />
             </div>
-            <div className="form-group">
-                 <label htmlFor="manufacturerName">Last Name</label>
-                 <input type="text" className="form-control" id="manufacturerName" placeholder="Last Name " onChange={(e) => { setLastName(e.target.value) }}/>
+            <div className={styles.row}>
+                 <label>Last Name</label>
+                 <input type="text"  required placeholder="Last Name " onChange={(e) => { setLastName(e.target.value) }}/>
             </div>
-            <div className="form-group">
-                 <label htmlFor="manufacturerName">DOB</label>
-                 <input type="date" className="form-control" id="manufacturerName" placeholder="DOB" onChange={(e) => { setDob(e.target.value) }}/>
+            <div className={styles.row}>
+                 <label >DOB</label>
+                 <input type="date"  required placeholder="DOB" onChange={(e) => { setDob(e.target.value) }}/>
             </div>
-            <div className="form-group">
-            <input type="radio" value="male" id="male" onChange={(e)=>{setGender(e.target.value)}} name="gender" />
+            <div className={styles.rowRadio}>
+                <div>
+            <label>Gender</label>
+            <input type="radio" value="male"  required  onChange={(e)=>{setGender(e.target.value)}} name="gender" />
             <label for="male">Male</label>
 
-            <input type="radio" value="female" id="female" onChange={(e)=>{setGender(e.target.value)}} name="gender"/>
-            <label for="female">Female</label>                
+            <input type="radio" value="female" required onChange={(e)=>{setGender(e.target.value)}} name="gender"/>
+            <label>Female</label> 
+            </div>               
             </div>
-            <div className="form-group">
-                 <label htmlFor="manufacturerName">Experience</label>
-                 <input type="number" className="form-control" id="manufacturerName" placeholder="Experience"  onChange={(e)=>{setExperience(e.target.value)}}  />
+            <div className={styles.row}>
+                 <label >Experience</label>
+                 <input type="number" required placeholder="Experience"  onChange={(e)=>{setExperience(e.target.value)}}  />
             </div>
-            <button type="submit" className="btn btn-primary">Add Executive</button>
+            <div id="button" className={styles.row}>
+                <button type="submit">Add Executive</button>
+            </div>
         </form>
     </div>
     )}

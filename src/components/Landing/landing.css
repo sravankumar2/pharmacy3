@@ -1,0 +1,12 @@
+ .landing{    
+   margin: 85px 10px auto auto;
+    padding: 0 10px;
+     display:  flex;
+     flex-direction: column;    
+     align-items: center; 
+ }
+
+.dropdown{
+    min-width: 200px;
+
+}

@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { updateExecutiveDetails } from '../../actions';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
+import styles from "./viewStock.module.css"
 
 const ViewEmployee=({ teamList, team_list_after_delete,update_executive_details})=>{
     console.log(teamList)
@@ -35,7 +36,7 @@ const ViewEmployee=({ teamList, team_list_after_delete,update_executive_details}
            alert("ajj")
         const empListAfterUpdate= JSON.parse(localStorage.getItem('empList')) ;
         alert(empListAfterUpdate)
-        const updatedIndex=empListAfterUpdate.findIndex((prod) => prod.salesExecutiveId === id)   
+        const updatedIndex=empListAfterUpdate.findIndex((prod) => prod.salesExecutiveId === id)
       
         empListAfterUpdate[updatedIndex].firstName=firstName;
         empListAfterUpdate[updatedIndex].lastName=lastName;
@@ -54,40 +55,39 @@ const ViewEmployee=({ teamList, team_list_after_delete,update_executive_details}
    
     }
     return(
-        <div>
-        <table className="gridtable">
-    <tr>
-      <th>FirstName</th>
-      <th>LastName</th>
-      <th>Gender</th>
-      <th>DOB</th>
-      <th>Experience</th>
-    </tr>
-    <tr>
-    
-      <td><input type="text" required value={firstName} onChange={(e) => { setFirstName(e.target.value) }}></input></td>
-      <td><input type="text" required value={lastName} onChange={(e) => { setLastName(e.target.value) }}></input></td>
-      <td><input type="text" required value={gender} onChange={(e) => { setGender(e.target.value) }}></input></td>
-      <td><input type="date" required value={dob} onChange={(e) => { setDob(e.target.value) }}></input></td>
-      <td><input type="Number" required value={experience} onChange={(e) => { setExperience(e.target.value) }}></input></td>
-      <td><button onClick={()=>handleUpdate(salesExecutiveId)}>Update</button></td> 
-     
-    </tr>
-      <tbody>  {teamList.map(item =>{    
-        return <tr key={item.salesExecutiveId}>
-        <td>{item.firstName}</td>
-        <td>{item.lastName}</td>
-        <td>{item.gender}</td>
-        <td>{item.dob}</td>
-        <td>{item.experience}</td>
-        <td onClick={()=>handleEdit(item.salesExecutiveId)}><EditIcon/></td>
-        <td onClick={()=>removeStock(item.salesExecutiveId)}><DeleteIcon/></td>
-      </tr>
-    })}
-    </tbody>
-  </table>
-      </div>
-    )
+        <div className={styles.tableWrapper}>
+          <table className={styles.gridTable}>
+          <caption>Executive Details</caption>
+            <tr>
+              <th>FirstName</th>
+              <th>LastName</th>
+              <th>Gender</th>
+              <th>DOB</th>
+              <th>Experience</th>
+            </tr>
+            <tr>    
+               <td><input type="text" required value={firstName} onChange={(e) => { setFirstName(e.target.value) }}></input></td>
+              <td><input type="text" required value={lastName} onChange={(e) => { setLastName(e.target.value) }}></input></td>
+              <td><input type="text" required value={gender} onChange={(e) => { setGender(e.target.value) }}></input></td>
+              <td><input type="date" required value={dob} onChange={(e) => { setDob(e.target.value) }}></input></td>
+              <td><input type="Number" required value={experience} onChange={(e) => { setExperience(e.target.value) }}></input></td>
+              <td><button onClick={()=>handleUpdate(salesExecutiveId)}>Update</button></td>
+            </tr>
+            <tbody>  {teamList.map(item =>{    
+                return <tr key={item.salesExecutiveId}>
+                          <td>{item.firstName}</td>
+                          <td>{item.lastName}</td>
+                          <td>{item.gender}</td>
+                          <td>{item.dob}</td>
+                          <td>{item.experience}</td>
+                          <td onClick={()=>handleEdit(item.salesExecutiveId)}><EditIcon/></td>
+                          <td onClick={()=>removeStock(item.salesExecutiveId)}><DeleteIcon/></td>
+                        </tr>
+                      })}
+            </tbody>
+          </table>
+        </div>
+      )
   
   }
   const mapStateToProps = (state) => ({

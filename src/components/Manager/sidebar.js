@@ -15,26 +15,32 @@ import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { adminLogout } from '../../../actions';
+import { adminLogout } from '../../actions';
 import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '90%',
-    height:'90vh',
-    maxWidth: "16%",
+    width: '180px',
+    height:'90%',    
     margin:0,
     padding:0,
     position:'fixed',
-    backgroundColor: theme.palette.background.paper,
+    // backgroundColor: theme.palette.background.paper,
+    backgroundColor:"#81BE82"
     
   },
+  text:{
+    marginLeft:theme.spacing(-2),
+    paddingLeft:theme.spacing(-1),
+  },
   nested: {
-    paddingLeft: theme.spacing(3),
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(1),
     
   },
   links:{
     textDecoration:"none",
+    color:"#FAFAFA"
   },
 }));
 
@@ -60,10 +66,8 @@ const NestedList=({ logOutAdmin,loginStatus })=>{
                 localStorage.setItem('loginStatus', false)
                 localStorage.setItem('adminLogin', false)
                 localStorage.setItem('salesLogin', false)
-               
                 logOutAdmin()
-                history.push("/pharmacy1")
-       
+                // history.push("/pharmacy1")       
   };
 
   return (
@@ -80,7 +84,7 @@ const NestedList=({ logOutAdmin,loginStatus })=>{
         <ListItemIcon>
           <StoreIcon />
         </ListItemIcon>
-        <ListItemText primary="Inventory" />
+        <ListItemText primary="Inventory" className={classes.text} />
         {stock ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
       <Collapse in={stock} timeout="auto" unmountOnExit>
@@ -90,7 +94,7 @@ const NestedList=({ logOutAdmin,loginStatus })=>{
             <ListItemIcon>
               <StarBorder />
             </ListItemIcon>
-            <ListItemText primary="Add Medicine" />           
+            <ListItemText primary="Add Medicine" className={classes.text}/>           
           </ListItem> 
           </Link>         
         </List>
@@ -102,7 +106,7 @@ const NestedList=({ logOutAdmin,loginStatus })=>{
             <ListItemIcon>
               <StarBorder />
             </ListItemIcon>
-            <ListItemText primary="View Stock" />           
+            <ListItemText primary="View Stock" className={classes.text}/>           
           </ListItem> 
           </Link>         
         </List>
@@ -112,7 +116,7 @@ const NestedList=({ logOutAdmin,loginStatus })=>{
         <ListItemIcon>
           <PeopleIcon />
         </ListItemIcon>
-        <ListItemText primary="Employees" />
+        <ListItemText primary="Executives" className={classes.text}/>
         {emp ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
       <Collapse in={emp} timeout="auto" unmountOnExit>
@@ -122,7 +126,7 @@ const NestedList=({ logOutAdmin,loginStatus })=>{
             <ListItemIcon>
               <StarBorder />
             </ListItemIcon>
-            <ListItemText primary="Add SalesExecutive" />            
+            <ListItemText primary="Add Executive" className={classes.text}/>            
           </ListItem> 
           </Link>         
         </List>
@@ -134,7 +138,7 @@ const NestedList=({ logOutAdmin,loginStatus })=>{
             <ListItemIcon>
               <StarBorder />
             </ListItemIcon>
-            <ListItemText primary="View Employees" />            
+            <ListItemText primary="View Executive" className={classes.text}/>            
           </ListItem>
           </Link>          
         </List>
@@ -143,7 +147,7 @@ const NestedList=({ logOutAdmin,loginStatus })=>{
         <ListItemIcon>
           <LocalHospitalIcon />
         </ListItemIcon>
-        <ListItemText primary="Orders" />
+        <ListItemText primary="Orders" className={classes.text}/>
         {ord ? <ExpandLess /> : <ExpandMore />}
       </ListItem>     
       <Collapse in={ord} timeout="auto" unmountOnExit>     
@@ -153,7 +157,7 @@ const NestedList=({ logOutAdmin,loginStatus })=>{
             <ListItemIcon>
               <StarBorder />
             </ListItemIcon>
-            <ListItemText primary="View Orders" />           
+            <ListItemText primary="View Orders" className={classes.text}/>           
           </ListItem> 
           </Link>         
         </List>
@@ -165,19 +169,19 @@ const NestedList=({ logOutAdmin,loginStatus })=>{
             <ListItemIcon>
               <StarBorder />
             </ListItemIcon>
-            <ListItemText primary="Create Orders" />           
+            <ListItemText primary="Create Orders"className={classes.text} />           
           </ListItem> 
           </Link>         
         </List>
       </Collapse>
-      {/* <Link to="/pharmacy1" className={classes.links}> */}
+      <Link to="/pharmacy1"  className={classes.links}>
         <ListItem button onClick={handleClick}>        
         <ListItemIcon>
           <ExitToAppIcon />
         </ListItemIcon>
-        <ListItemText primary="Log-Out" />        
+        <ListItemText primary="Log-Out" className={classes.text}/>        
       </ListItem>
-      
+      </Link>
     </List>
     
     </>

@@ -31,7 +31,7 @@ function App({ adminLogin, loginStatus, salesLogin }) {
    
     
     <Switch>
-          <Route path="/pharmacy1" exact><Landing/></Route>
+          <Route path="/pharmacy1" exact><Home/></Route>
           {/* {!adminLogin && !loginStatus &&<Route path="/" exact><Home /></Route>} */}
           {/* <Route path="/login" exact><Home /></Route> */}
           {/* <Route path="/" exact><Login /></Route> */}

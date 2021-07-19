@@ -20,13 +20,13 @@ const SalesExecutive=( {loginStatus, salesLogin,logOutSales,adminLogin })=>{
       };
     return <div id="sales-home" style={{marginTop:"80px"}}>
       <Router>
-    <h2>SalesExecutive</h2>
+    <h2 style={{color:"#fff"}}>SalesExecutive</h2>
     <div>
-         <span><Link to="/createOrder">Create Order</Link></span>
-         <span><Link to="/sales/viewOrders">View Orders</Link></span>
-         <span onClick={handleClick}><Link to="/pharmacy1">LogOut</Link></span>
+         <span style={{border:"1px solid #ccc",padding:"5px",marginRight:"5px",cursor:"pointer"}}><Link to="/createOrder" style={{textDecoration:"none"}}>Create Order</Link></span>
+         <span style={{border:"1px solid #ccc",padding:"5px",marginRight:"5px",cursor:"pointer"}}><Link to="/sales/viewOrders"style={{textDecoration:"none"}}>View Orders</Link></span>
+         <span style={{border:"1px solid #ccc",padding:"5px",marginRight:"5px",cursor:"pointer"}} onClick={handleClick}><Link to="/pharmacy1"style={{textDecoration:"none"}}>LogOut</Link></span>
     </div>
-    <div>
+    <div style={{margin:"15px"}}>
      
       <Switch>
     {salesLogin&&loginStatus && <Route path="/createOrder"><AddOrders/></Route>}
