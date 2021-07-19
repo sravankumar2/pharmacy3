@@ -17,7 +17,7 @@ const Home = ({ loginStatus, adminLogin, salesLogin }) => {
         <Switch>
     {adminLogin === true && loginStatus === true &&<Route path="/adminHome"><Man/></Route>}
     {salesLogin === true && loginStatus === true &&<Route path="/salesHome"><Sales/></Route>}
-    {loginStatus === false && <Route path="/pharmacy3"><Landing/></Route>}
+    {loginStatus === false && <Route path="/"><Landing/></Route>}
     </Switch>
     </div>);
 }
